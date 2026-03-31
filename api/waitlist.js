@@ -1,71 +1,41 @@
-/**
- * Serverless function for handling waitlist submissions via Resend API.
- * This file is structured for an Edge/Serverless deployment (like Vercel).
- */
 export default async function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
-
-  const { email } = req.body;
-  
-  if (!email || !email.includes('@')) {
-    return res.status(400).json({ error: 'Valid email address required' });
-  }
-
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
-
-  if (!RESEND_API_KEY) {
-    console.warn('RESEND_API_KEY is not set in environment variables.');
-    // In local dev without key, simulate success
-    return res.status(200).json({ 
-      success: true, 
-      simulated: true, 
-      message: 'Email bypassed for local dev.'
-    });
-  }
-
-  try {
-    // Calling Resend API using standard fetch to avoid heavy node dependencies
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`
-      },
-      body: JSON.stringify({
-        // Note: For custom domains, verify your domain in Resend and replace 'onboarding@resend.dev'
-        from: 'Promptly <onboarding@resend.dev>',
-        to: email, // Sending confirmation to the user who signed up!
-        subject: 'You are on the Promptly Waitlist!',
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #3a3335;">
-            <h1>Welcome to Promptly!</h1>
-            <p style="font-size: 16px;">
-              Thank you for joining the waitlist for the Financial Operating System for AI. 
-              We're thrilled to have you on board.
-            </p>
-            <p style="font-size: 16px;">
-              We'll be in touch soon with early access updates!
-            </p>
-            <p style="font-size: 16px; margin-top: 30px;">
-              - The Promptly Team
-            </p>
-          </div>
-        `
-      })
-    });
-
-    const data = await response.json();
-    
-    if (response.ok) {
-      return res.status(200).json({ success: true, data });
-    } else {
-      return res.status(400).json({ error: data.message || 'Error from Resend API' });
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
     }
-  } catch (err) {
-    console.error('Waitlist API Error:', err);
-    return res.status(500).json({ error: 'Internal Server Error' });
-  }
+
+    const { email } = req.body;
+
+    if (!email || !email.includes('@')) {
+        return res.status(400).json({ error: 'Invalid email address' });
+    }
+
+    try {
+        // The Vercel Environment Variable containing your Google Apps Script Webhook
+        const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+        
+        if (!webhookUrl) {
+            return res.status(500).json({ error: 'Google Sheets Webhook URL is missing in Vercel env' });
+        }
+
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // Forwarding the email and a timestamp to your Google Sheet
+            body: JSON.stringify({ 
+                email: email, 
+                timestamp: new Date().toISOString() 
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Google Webhook rejected the request');
+        }
+
+        return res.status(200).json({ success: true, message: 'Added to Google Sheet' });
+    } catch (error) {
+        console.error('Google Sheets Error:', error);
+        return res.status(500).json({ error: 'Failed to save to Google Sheets.' });
+    }
 }

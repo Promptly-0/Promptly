@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promptly | The Financial Operating System for AI</title>
+    <meta name="description" content="Promptly is the first autonomous trading terminal giving AI agents the ability to securely manage capital, purchase data, and execute trades at lightning speed.">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Use Lucide icons via CDN since it aligns with the user's past enterprise aesthetic -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="container">
+        <nav>
+            <a href="#" class="brand">
+                <!-- Logo is completely untouched, retaining original colors -->
+                <img src="assets/logo.png" alt="Promptly Logo">
+            </a>
+            <div class="nav-links" style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="https://x.com/Promptl_y" target="_blank" rel="noopener noreferrer" style="color: var(--color-mineral); font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-pink-deep)'" onmouseout="this.style.color='var(--color-mineral)'">
+                    <i data-lucide="twitter"></i> Follow on X
+                </a>
+                <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero container">
+        <div class="animate delay-1">
+            <h1 class="heading-display">The Financial Operating System for AI</h1>
+            <p class="text-lead">
+                The internet is shifting to an Agentic Web. Give your AI agents the capability to securely manage capital, purchase real-time market data, and execute trades at lightning speed.
+            </p>
+            
+            <form class="waitlist-form" id="waitlistForm" action="#" method="POST">
+                <input type="email" placeholder="Enter your email to get early access..." required>
+                <button type="submit" class="btn btn-primary">Join Waitlist</button>
+            </form>
+        </div>
+        
+        <div class="hero-visual animate delay-2 glass-panel">
+            <img src="assets/banner.png" alt="Promptly Artisan Banner">
+        </div>
+    </header>
+
+    <!-- Problem / Solution Section -->
+    <section class="container" id="solution">
+        <div class="section-header animate">
+            <h2 class="heading-section">Why AI Needs Promptly</h2>
+            <p class="text-lead">Today, AI is incredibly smart but financially paralyzed. We remove the roadblocks.</p>
+        </div>
+        
+        <div class="grid-3 animate delay-1">
+            <!-- Problem 1 -->
+            <div class="glass-panel feature-card">
+                <div class="feature-icon"><i data-lucide="credit-card"></i></div>
+                <h3>The Subscription Bottleneck</h3>
+                <p>AI can't easily buy market data for split-second decisions. <br><br><strong>Solution:</strong> Pay-As-You-Go Intelligence lets AI autonomously buy exact data instantly for a fraction of a cent.</p>
+            </div>
+            
+            <!-- Problem 2 -->
+            <div class="glass-panel feature-card">
+                <div class="feature-icon"><i data-lucide="zap"></i></div>
+                <h3>The Speed Limit</h3>
+                <p>Legacy finance requires human multisigs. <br><br><strong>Solution:</strong> Powered by the Tempo Network (backed by Stripe & Paradigm), we enable 100k+ TPS with sub-second finality via Pre-Approved Spending Sessions.</p>
+            </div>
+            
+            <!-- Problem 3 -->
+            <div class="glass-panel feature-card">
+                <div class="feature-icon"><i data-lucide="shield-alert"></i></div>
+                <h3>The Trust Issue</h3>
+                <p>Giving AI unrestricted access to your wallet is dangerous. <br><br><strong>Solution:</strong> Digital Dollar Native (USDC) limits volatility, acting as an immutable Settlement Layer protected by our Guardrail Engine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guardrail Engine Section -->
+    <section class="guardrail-section">
+        <div class="container" style="position: relative; z-index: 10;">
+            <div class="section-header animate">
+                <div class="badge" style="margin-bottom: 1rem; color: #fff; background: var(--color-mineral);">Built-in Security</div>
+                <h2 class="heading-section">The Guardrail Engine</h2>
+                <p class="text-lead" style="color: var(--color-mineral);">Because AI can be unpredictable, security is our primary focus. Your capital is physically protected from AI hallucinations.</p>
+            </div>
+            
+            <div class="grid-3 animate delay-1">
+                <div class="glass-panel feature-card">
+                    <div class="feature-icon"><i data-lucide="lock"></i></div>
+                    <h3>Hard Budget Caps</h3>
+                    <p>The AI physically cannot exceed the strict dollar amount you assigned to its highly specific session block.</p>
+                </div>
+                
+                <div class="glass-panel feature-card">
+                    <div class="feature-icon"><i data-lucide="check-circle"></i></div>
+                    <h3>Safe Assets Only</h3>
+                    <p>Technologically restricted from trading unverified, low-liquidity, or "meme" pools—interacting only with audited digital assets.</p>
+                </div>
+                
+                <div class="glass-panel feature-card">
+                    <div class="feature-icon"><i data-lucide="power-off"></i></div>
+                    <h3>The Circuit Breaker</h3>
+                    <p>Constantly monitors AI performance. If the portfolio drops by a user-defined amount (e.g., 5%), it instantly pulls the plug.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="container" id="business-model">
+        <div class="section-header animate">
+            <h2 class="heading-section">We Only Win When You Win</h2>
+            <p class="text-lead">The software industry is tired of expensive monthly subscriptions. Promptly uses an outcome-based revenue model.</p>
+        </div>
+        
+        <div class="grid-3 animate delay-1">
+            <div class="glass-panel feature-card" style="text-align: center;">
+                <h3 style="font-size: 3rem; margin: 0; color: #000;">15%</h3>
+                <h4 style="color: var(--color-mineral-light);">Performance Fee</h4>
+                <p>Taken only on the net profits generated during a trading session. If the AI doesn’t make money, we don't.</p>
+            </div>
+            
+            <div class="glass-panel feature-card" style="text-align: center;">
+                <h3 style="font-size: 3rem; margin: 0; color: #000;">$0.05</h3>
+                <h4 style="color: var(--color-mineral-light);">Platform Fee</h4>
+                <p>A tiny flat fee applied each time a secure AI trading session is authorized and opened.</p>
+            </div>
+
+            <div class="glass-panel feature-card" style="text-align: center;">
+                <h3 style="font-size: 3rem; margin: 0; color: #000;">&lt; 1¢</h3>
+                <h4 style="color: var(--color-mineral-light);">Data Routing</h4>
+                <p>A microscopic gas surcharge whenever the AI traveres the Tempo network to purchase outside market data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap timeline -->
+    <section class="container" id="roadmap">
+        <div class="section-header animate">
+            <h2 class="heading-section">The Roadmap</h2>
+            <p class="text-lead">Perfectly timed to ride the wave of the new machine-to-machine economy.</p>
+        </div>
+        
+        <div class="roadmap-timeline animate delay-1">
+            <div class="timeline-item glass-panel">
+                <h3>Phase 1: Launch (Current)</h3>
+                <p>Releasing the core Promptly Terminal, allowing users to deploy AI traders using digital dollars with full safety guardrails.</p>
+            </div>
+            
+            <div class="timeline-item glass-panel" style="opacity: 0.8;">
+                <h3>Phase 2: The Data Marketplace</h3>
+                <p>Opening our platform so that third-party AI agents can use Promptly's infrastructure to pay for data and services across the web.</p>
+            </div>
+            
+            <div class="timeline-item glass-panel" style="opacity: 0.6;">
+                <h3>Phase 3: Global Expansion</h3>
+                <p>Expanding our settlement layer so AI agents can trade across multiple different financial networks seamlessly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container" id="waitlist">
+        <div class="cta-section glass-panel animate">
+            <h2 class="heading-section">The Financial Infrastructure <br>for the AI Era</h2>
+            <p class="text-lead" style="margin-bottom: 2rem; color: var(--color-mineral);">Unlock the next major leap in automated wealth generation.</p>
+            
+            <form class="waitlist-form animate delay-1" style="background: white; border: none; max-width: 480px; margin: 0 auto; box-shadow: 0 8px 24px rgba(0,0,0,0.05);">
+                <input type="email" placeholder="Enter your email address..." required style="background: transparent;">
+                <button type="submit" class="btn btn-primary">Join Promptly Beta</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer container">
+        <div style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
+            <a href="https://x.com/Promptl_y" target="_blank" rel="noopener noreferrer" style="color: var(--color-mineral); font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-pink-deep)'" onmouseout="this.style.color='var(--color-mineral)'">
+                <i data-lucide="twitter"></i> Follow on X
+            </a>
+        </div>
+        <p>&copy; 2026 Promptly. Built on the Tempo blockchain. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

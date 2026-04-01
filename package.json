@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "prisma generate"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,8 @@
   },
   "homepage": "https://github.com/Promptly-0/Promptly#readme",
   "dependencies": {
-    "@vercel/kv": "^3.0.0"
+    "@prisma/client": "^7.6.0",
+    "@vercel/kv": "^3.0.0",
+    "prisma": "^7.6.0"
   }
 }

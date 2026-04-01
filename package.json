@@ -23,8 +23,10 @@
   },
   "homepage": "https://github.com/Promptly-0/Promptly#readme",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
     "@prisma/client": "^7.6.0",
     "@vercel/kv": "^3.0.0",
+    "pg": "^8.16.3",
     "prisma": "^7.6.0"
   }
 }
